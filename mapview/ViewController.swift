@@ -1,15 +1,19 @@
 
-
 import UIKit
 import MapKit
+
 class ViewController: UIViewController,UISearchResultsUpdating {
+    
+    //variable declaration
     var reserach = UISearchController()
+    
+    //outlet
     @IBOutlet weak var mapview: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reserach = ({
-            
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
@@ -21,6 +25,8 @@ class ViewController: UIViewController,UISearchResultsUpdating {
         
         
     }
+
+    //function declaration
     func updateSearchResults(for searchController: UISearchController) {
         let searchrequest = MKLocalSearch.Request()
         let name = searchController.searchBar.text!
